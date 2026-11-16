@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Worklist — Team task planner</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #17233c;
+      background: #f5f7fb;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 12% 0%, rgba(84, 112, 235, .09), transparent 34rem),
+        #f5f7fb;
+    }
+
+    button, input, select { font: inherit; }
+
+    .topbar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      padding: 0 max(24px, calc((100vw - 1060px) / 2));
+      border-bottom: 1px solid #e8ebf2;
+      background: rgba(255, 255, 255, .8);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: #17233c;
+      font-size: 17px;
+      font-weight: 750;
+      letter-spacing: -.4px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 10px;
+      background: #405be3;
+      color: white;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(64, 91, 227, .2);
+    }
+
+    main {
+      width: min(100% - 40px, 960px);
+      margin: 70px auto 80px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #68758d;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: #17233c;
+      font-size: clamp(30px, 5vw, 42px);
+      font-weight: 760;
+      letter-spacing: -1.7px;
+      line-height: 1.15;
+    }
+
+    .intro {
+      margin: 12px 0 30px;
+      color: #68758d;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .task-card {
+      overflow: hidden;
+      border: 1px solid #e7eaf1;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 12px 36px rgba(33, 47, 82, .06);
+    }
+
+    .add-form {
+      display: grid;
+      grid-template-columns: minmax(200px, 2fr) repeat(3, minmax(120px, 1fr)) auto;
+      align-items: end;
+      gap: 12px;
+      padding: 22px;
+      border-bottom: 1px solid #edf0f5;
+    }
+
+    .field { display: grid; gap: 6px; min-width: 0; }
+
+    .field label {
+      color: #4c5970;
+      font-size: 12px;
+      font-weight: 680;
+    }
+
+    .field input, .field select {
+      width: 100%;
+      min-width: 0;
+      height: 48px;
+      padding: 0 13px;
+      border: 1px solid #dfe4ee;
+      border-radius: 9px;
+      outline: none;
+      background: #fff;
+      color: #17233c;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    .field input::placeholder { color: #9aa4b6; }
+    .field input:focus, .field select:focus {
+      border-color: #7185ed;
+      box-shadow: 0 0 0 3px rgba(64, 91, 227, .12);
+    }
+
+    .add-button {
+      display: inline-flex;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 19px;
+      border: 0;
+      border-radius: 9px;
+      background: #405be3;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 680;
+      transition: background .15s, transform .15s;
+    }
+
+    .add-button:hover { background: #324bd0; }
+    .add-button:active { transform: translateY(1px); }
+    .add-button:focus-visible, .delete-button:focus-visible {
+      outline: 3px solid rgba(64, 91, 227, .25);
+      outline-offset: 2px;
+    }
+
+    .list-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 20px 22px 10px;
+    }
+
+    .list-heading h2 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 730;
+    }
+
+    .count {
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #f0f2ff;
+      color: #405be3;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      padding: 0 22px 12px;
+    }
+
+    .task-table {
+      width: 100%;
+      min-width: 620px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .task-table th {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e3e7ef;
+      color: #68758d;
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: .8px;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .task-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #edf0f5;
+      color: #26334c;
+      vertical-align: middle;
+    }
+
+    .task-table tbody tr:last-child td { border-bottom: 0; }
+    .task-table tbody tr:hover { background: #fafbfe; }
+    .task-table .actions { width: 1%; text-align: right; white-space: nowrap; }
+
+    .task-name { overflow-wrap: anywhere; font-weight: 600; }
+    .due-date { white-space: nowrap; }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 680;
+      white-space: nowrap;
+    }
+
+    .priority-high { background: #fff0ef; color: #b43e39; }
+    .priority-medium { background: #fff6e6; color: #9a5b00; }
+    .priority-low { background: #eef8f1; color: #237247; }
+    .category { background: #f1f3f8; color: #4c5970; }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .delete-button {
+      padding: 8px 10px;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: #8a94a7;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 620;
+    }
+
+    .delete-button:hover {
+      background: #fff0ef;
+      color: #c74742;
+    }
+
+    .empty-state {
+      padding: 28px 20px 34px;
+      color: #77839a;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .empty-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 12px;
+      place-items: center;
+      border-radius: 12px;
+      background: #f0f2ff;
+      color: #405be3;
+      font-size: 20px;
+    }
+
+    .flash {
+      margin: 0 22px 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .flash.success { background: #eef8f1; color: #237247; }
+    .flash.error { background: #fff0ef; color: #b43e39; }
+
+    @media (max-width: 860px) {
+      .add-form { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .field-task, .add-button { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 520px) {
+      main { margin-top: 46px; }
+      .add-form { grid-template-columns: 1fr; padding: 16px; }
+      .list-heading { padding-right: 16px; padding-left: 16px; }
+      .table-wrap { padding-right: 16px; padding-left: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}" aria-label="Worklist home">
+      <span class="brand-mark" aria-hidden="true">✓</span>
+      <span>Worklist</span>
+    </a>
+  </header>
+
+  <main>
+    <p class="eyebrow">Your workspace</p>
+    <h1>Make today count.</h1>
+    <p class="intro">Keep your priorities clear and your work moving forward.</p>
+
+    <section class="task-card" aria-labelledby="task-list-heading">
+      <form class="add-form" action="{{ url_for('add_task') }}" method="post">
+        <div class="field field-task">
+          <label for="task">Task</label>
+          <input id="task" type="text" name="task" maxlength="160" placeholder="What needs to be done?" required>
+        </div>
+        <div class="field">
+          <label for="priority">Priority</label>
+          <select id="priority" name="priority" required>
+            <option value="" selected disabled>Select</option>
+            {% for priority in priorities %}
+              <option value="{{ priority }}">{{ priority }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="" selected disabled>Select</option>
+            {% for category in categories %}
+              <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="field">
+          <label for="due_date">Due date</label>
+          <input id="due_date" type="date" name="due_date" required>
+        </div>
+        <button class="add-button" type="submit"><span aria-hidden="true">+</span> Add task</button>
+      </form>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+          <p class="flash {{ category }}" role="status">{{ message }}</p>
+        {% endfor %}
+      {% endwith %}
+
+      <div class="list-heading">
+        <h2 id="task-list-heading">My tasks</h2>
+        <span class="count">{{ tasks|length }} {{ "task" if tasks|length == 1 else "tasks" }}</span>
+      </div>
+
+      {% if tasks %}
+        <div class="table-wrap">
+          <table class="task-table">
+            <thead>
+              <tr>
+                <th scope="col">Task</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Category</th>
+                <th scope="col">Due date</th>
+                <th scope="col" class="actions"><span class="visually-hidden">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for index, task in tasks %}
+                <tr>
+                  <td class="task-name">{{ task.task }}</td>
+                  <td><span class="badge priority-{{ task.priority|lower }}">{{ task.priority }}</span></td>
+                  <td><span class="badge category">{{ task.category }}</span></td>
+                  <td class="due-date"><time datetime="{{ task.due_date }}">{{ task.due_date|display_date }}</time></td>
+                  <td class="actions">
+                    <form action="{{ url_for('delete_task', task_index=index) }}" method="post">
+                      <button class="delete-button" type="submit" aria-label="Delete {{ task.task }}">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <div class="empty-state">
+          <span class="empty-icon" aria-hidden="true">✓</span>
+          <div>No tasks on your list yet.</div>
+          <div>Add a priority above to get started.</div>
+        </div>
+      {% endif %}
+    </section>
+  </main>
+</body>
+</html>
