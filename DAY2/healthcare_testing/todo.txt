@@ -1,0 +1,137 @@
+Step 4 – Identify testing tools and compliance requirements
+Goal: Identify suitable testing tools and relevant healthcare compliance requirements.
+Prompt 5 – Testing Tools
+GitHub Copilot Chat Prompt
+Recommend appropriate tools for testing the Healthcare Analytics Platform.
+Consider:
+Selenium or Playwright for UI automation.
+Postman or REST Assured for API testing.
+JMeter for performance testing.
+OWASP ZAP for security testing.
+PyTest for backend testing.
+SQL tools for database validation.
+Jira for defect tracking.
+GitHub Actions for CI/CD.
+For each tool, explain its purpose, advantages, integration approach, and where it fits in the testing lifecycle.
+Present the output in a comparison table.
+Copy prompt
+Prompt 6 – Healthcare Compliance
+Ask Copilot:
+"Identify healthcare data privacy, security, and regulatory compliance requirements relevant to this platform. Consider HIPAA, GDPR, India's Digital Personal Data Protection Act (DPDP Act), and ABDM requirements where applicable. Explain data encryption, consent management, access control, audit logging, data retention, anonymization, and breach management. Distinguish applicable legal obligations from recommended security practices."
+Expected output:
+Patient data privacy.
+Data encryption at rest and in transit.
+Role-based access control.
+Audit trail management.
+Consent management.
+Data retention and deletion.
+Secure test data management.
+Data masking and anonymization.
+Important: Compliance applicability depends on the platform's operating countries, data flows, and organizational role. Copilot's output should be validated by security, privacy, and legal specialists.
+Save as compliance-requirements.md.
+6. Step 5 – Generate the Test Plan using Agent Mode
+Main demonstration
+Now we will use GitHub Copilot Agent Mode to generate the complete Test Plan document using the outputs created in the previous steps.
+First, create this folder structure in VS Code:
+Healthcare-Analytics-Testing/
+│
+├── project-brief.md
+├── testing-scope.md
+├── testing-strategy.md
+├── compliance-requirements.md
+│
+└── test-plan/
+ 
+ 
+Open GitHub Copilot Chat.
+Select Agent mode.
+Ensure the project folder is open in VS Code.
+Allow Copilot to read the project documents.
+Provide the following prompt.
+Prompt 7 – Generate Complete Test Plan
+GitHub Copilot Agent Prompt
+Act as a Senior QA Test Manager.
+Review the following project documents:
+project-brief.md
+testing-scope.md
+testing-strategy.md
+compliance-requirements.md
+Generate a comprehensive Test Plan document for the Healthcare Analytics Platform.
+The Test Plan must include:
+Introduction and project overview.
+Testing objectives.
+Testing scope and exclusions.
+Test strategy and approach.
+Testing types and levels.
+Test environment and infrastructure.
+Test data management.
+Testing tools and technologies.
+Roles and responsibilities.
+Test execution schedule and milestones.
+Entry and exit criteria.
+Defect management process.
+Risk assessment and mitigation.
+Security and compliance requirements.
+Test deliverables.
+Test completion and sign-off criteria.
+Instructions:
+Use the existing project documents as the primary source.
+Identify missing information instead of making unsupported assumptions.
+Include measurable testing objectives.
+Include tables wherever appropriate.
+Highlight healthcare data privacy and security risks.
+Maintain professional QA documentation standards.
+Save the final document as:
+test-plan/Healthcare_Analytics_Test_Plan.md
+Do not overwrite existing source documents.
+Copy Agent prompt
+What Agent Mode will do:
+Read the existing project files.
+Analyze the requirements.
+Identify missing information.
+Generate the Test Plan.
+Create the Markdown file.
+Ask for permission where required by the environment.
+Review proposed file changes and approve them only after inspection.
+7. Step 6 – Review the generated Test Plan
+The final step is to ask Copilot to act as an independent QA reviewer.
+Prompt 8 – Test Plan Review
+GitHub Copilot Agent Prompt
+Review the generated Healthcare Analytics Test Plan as an independent QA auditor.
+Validate the following:
+Completeness of testing scope.
+Alignment between objectives and testing strategy.
+Measurability of quality metrics.
+Completeness of entry and exit criteria.
+Test environment readiness.
+Test data privacy and security.
+Regulatory compliance considerations.
+Risk identification and mitigation.
+Defect management process.
+Release readiness criteria.
+Identify:
+Missing sections.
+Ambiguous requirements.
+Unrealistic testing targets.
+Incomplete compliance controls.
+Potential project risks.
+Generate a review report with findings classified as Critical, High, Medium, and Low.
+Suggest corrections and update the Test Plan only after presenting the review findings for approval.
+Copy review prompt
+Expected deliverables:
+Healthcare_Analytics_Test_Plan.md
+Test_Plan_Review_Report.md
+Updated and approved test plan.
+8. Final expected output
+Healthcare-Analytics-Testing
+project-brief.md
+Business requirements and technical overview
+testing-scope.md
+In-scope and out-of-scope testing activities
+testing-strategy.md
+Testing objectives, metrics and execution approach
+compliance-requirements.md
+Healthcare security, privacy and compliance controls
+test-plan/
+Healthcare_Analytics_Test_Plan.md
+Test_Plan_Review_Report.md
