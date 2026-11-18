@@ -1,0 +1,95 @@
+2026-11-18 06:25:46,258 INFO Home endpoint accessed
+2026-11-18 06:26:39,953 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:39,954 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:39,954 WARNING Slow database response: 8 seconds
+2026-11-18 06:26:39,954 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:26:39,954 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:26:39,954 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:26:39,954 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:26:39,954 WARNING Payment API response delayed
+2026-11-18 06:26:39,954 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:39,954 ERROR KeyError: Employee ID not found
+2026-11-18 06:26:39,954 ERROR ZeroDivisionError: Division by zero
+2026-11-18 06:26:39,954 WARNING High API response time detected
+2026-11-18 06:26:39,954 INFO Demo error patterns generated
+2026-11-18 06:26:43,945 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:43,945 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:43,945 WARNING Slow database response: 8 seconds
+2026-11-18 06:26:43,945 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:26:43,945 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:26:43,945 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:26:43,945 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:26:43,945 WARNING Payment API response delayed
+2026-11-18 06:26:43,946 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:43,946 ERROR KeyError: Employee ID not found
+2026-11-18 06:26:43,946 ERROR ZeroDivisionError: Division by zero
+2026-11-18 06:26:43,946 WARNING High API response time detected
+2026-11-18 06:26:43,946 INFO Demo error patterns generated
+2026-11-18 06:26:45,241 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:45,242 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:45,242 WARNING Slow database response: 8 seconds
+2026-11-18 06:26:45,242 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:26:45,242 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:26:45,242 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:26:45,242 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:26:45,242 WARNING Payment API response delayed
+2026-11-18 06:26:45,242 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:45,242 ERROR KeyError: Employee ID not found
+2026-11-18 06:26:45,242 ERROR ZeroDivisionError: Division by zero
+2026-11-18 06:26:45,242 WARNING High API response time detected
+2026-11-18 06:26:45,242 INFO Demo error patterns generated
+2026-11-18 06:26:46,168 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:46,168 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:46,168 WARNING Slow database response: 8 seconds
+2026-11-18 06:26:46,168 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:26:46,168 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:26:46,169 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:26:46,169 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:26:46,169 WARNING Payment API response delayed
+2026-11-18 06:26:46,169 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:26:46,169 ERROR KeyError: Employee ID not found
+2026-11-18 06:26:46,169 ERROR ZeroDivisionError: Division by zero
+2026-11-18 06:26:46,169 WARNING High API response time detected
+2026-11-18 06:26:46,169 INFO Demo error patterns generated
+2026-11-18 06:27:00,943 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:00,943 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:00,943 WARNING Slow database response: 8 seconds
+2026-11-18 06:27:00,943 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:27:00,943 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:27:00,943 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:27:00,943 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:27:00,943 WARNING Payment API response delayed
+2026-11-18 06:27:00,943 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:00,943 ERROR KeyError: Employee ID not found
+2026-11-18 06:27:00,944 ERROR ZeroDivisionError: Division by zero
+2026-11-18 06:27:00,944 WARNING High API response time detected
+2026-11-18 06:27:00,944 INFO Demo error patterns generated
+2026-11-18 06:27:02,488 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:02,488 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:02,488 WARNING Slow database response: 8 seconds
+2026-11-18 06:27:02,488 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:27:02,488 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:27:02,488 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:27:02,488 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:27:02,488 WARNING Payment API response delayed
+2026-11-18 06:27:02,489 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:02,489 ERROR KeyError: Employee ID not found
+2026-11-18 06:27:02,489 ERROR ZeroDivisionError: Division by zero
+2026-11-18 06:27:02,489 WARNING High API response time detected
+2026-11-18 06:27:02,489 INFO Demo error patterns generated
+2026-11-18 06:27:09,898 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:09,898 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:09,898 WARNING Slow database response: 8 seconds
+2026-11-18 06:27:09,898 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:27:09,898 ERROR ValueError: Invalid employee salary value
+2026-11-18 06:27:09,898 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:27:09,899 ERROR TimeoutError: External payment API request timed out
+2026-11-18 06:27:09,899 WARNING Payment API response delayed
+2026-11-18 06:27:09,899 ERROR DatabaseConnectionError: Unable to connect to database
+2026-11-18 06:27:09,899 ERROR KeyError: Employee ID not found
+2026-11-18 06:27:09,899 ERROR ZeroDivisionError: Division by zero
+2026-11-18 06:27:09,899 WARNING High API response time detected
+2026-11-18 06:27:09,899 INFO Demo error patterns generated
+2026-11-18 06:27:31,761 ERROR EmployeeNotFound: employee_id=6
+2026-11-18 06:27:32,819 ERROR EmployeeNotFound: employee_id=6
+2026-11-18 06:27:37,692 ERROR EmployeeNotFound: employee_id=6
