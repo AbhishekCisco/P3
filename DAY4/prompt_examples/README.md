@@ -1,5 +1,16 @@
 # Prompt Engineering Examples
 
+## Overview
+
+This folder is an interactive command-line lab for comparing five prompting patterns through the Groq chat completions API. It belongs to DAY4's prompt-engineering material and makes real network requests rather than simulating model answers.
+
+## Learning Objectives
+
+- Compare zero-shot, few-shot, role-based, and repeated-sample prompts.
+- Separate system instructions from a user task.
+- Observe how examples and output constraints influence a model response.
+- Validate generated calculations and code rather than assuming agreement means correctness.
+
 This project is a small interactive lab for trying five prompt-engineering
 patterns with the Groq chat completions API. Run `main.py` and choose an
 example from the menu; each selection sends one or more requests to the
@@ -114,3 +125,23 @@ python main.py
 Choose options `1` through `5` to run an example, or `6` to exit. Each example
 uses the configured Groq API and therefore requires network access and a valid
 API key.
+
+## Topics Covered
+
+- **Zero-shot and few-shot prompting:** compare a task-only request with one that includes examples.
+- **Role-based prompting:** separate role/style guidance in a system message from concrete task requirements.
+- **Reasoning and verification:** request a calculation explanation, then independently check the arithmetic.
+- **Repeated sampling:** compare three responses, while recognizing that agreement is not proof of correctness.
+- **API-backed chat:** a shared helper sends messages to Groq and prints the returned completion.
+
+## Project Structure
+
+```text
+prompt_examples/
+├── main.py          # Menu, prompt examples, and Groq API requests
+├── requirements.txt # Groq client and python-dotenv
+├── .env             # Local GROQ_API_KEY and optional GROQ_MODEL settings
+└── README.md
+```
+
+The `.env` file is local configuration and must remain private. The source reads `GROQ_MODEL`, defaulting to `openai/gpt-oss-120b`; it requires a valid `GROQ_API_KEY`. There is no automated test suite, and each selected example requires network access.

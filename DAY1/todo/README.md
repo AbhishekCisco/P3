@@ -96,3 +96,27 @@ finished using the virtual environment.
 - There are no user accounts or persistent storage.
 - Delete actions use positions in the in-memory list. Refresh other open tabs
   after deleting a task to avoid acting on outdated row positions.
+- `count_tasks_by_priority()` is defined in `app.py` but is not currently used
+  by a route or template.
+- There is no automated test suite. Server-side validation is implemented in
+  the add-task route, while browser `required` attributes provide an additional
+  user-interface check.
+
+## Learning Objectives
+
+- Build a small web workflow with Flask route functions and Jinja templates.
+- Handle form submissions, validate values on the server, and use the
+  post/redirect/get pattern.
+- Render sorted in-memory data and display categorized status messages.
+- Understand the tradeoff between simple process-local state and persistent
+  database storage.
+
+## Topics Covered
+
+- **Routing and forms:** `app.py` serves the list and accepts add/delete POSTs.
+- **Validation:** task length, priority, category, and ISO due-date values are
+  checked before data is appended.
+- **Templating:** `templates/index.html` renders the form, task table, empty
+  state, flash messages, and responsive inline CSS.
+- **Transient state:** an in-memory list makes the example easy to follow but
+  loses all tasks on process restart and is not shared across worker processes.
